@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchiron <cchiron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/03 08:32:59 by cchiron           #+#    #+#             */
-/*   Updated: 2016/09/03 18:17:39 by cchiron          ###   ########.fr       */
+/*   Created: 2016/09/03 18:50:11 by cchiron           #+#    #+#             */
+/*   Updated: 2016/09/03 23:52:54 by cchiron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int			ft_iterative_factorial(int nb)
+int			ft_recursive_factorial(int nb)
 {
-	int v;
-
-	v = nb;
-	if (nb < 0)
-	{
-		return (0);
-	}
 	if (nb > 12)
 	{
 		return (0);
 	}
-	while (nb > 1)
+	if (nb < 0)
 	{
-		v = (v * (nb - 1));
-		--nb;
+		return (0);
 	}
-	return (v);
+	if (nb == 0)
+	{
+		return (1);
+	}
+	else
+	{
+		return (nb * ft_recursive_factorial(nb - 1));
+	}
 }
